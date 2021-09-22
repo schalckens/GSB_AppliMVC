@@ -17,9 +17,9 @@
 </div>
 <div class="row">
     <div class="col-md-12">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">
+        <div class="panel panel-primary" style="border-color : #006600" >
+            <div class="panel-heading" style="background-color: #009933">
+                <h3 class="panel-title" style="background-color: #009933">
                     <span class="glyphicon glyphicon-bookmark"></span>
                     Navigation
                 </h3>

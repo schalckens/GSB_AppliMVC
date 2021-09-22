@@ -66,7 +66,7 @@ class PdoGsb
     public function __destruct()
     {
         PdoGsb::$monPdo = null;
-    }
+      }
 
     /**
      * Fonction statique qui crée l'unique instance de la classe
@@ -99,7 +99,7 @@ class PdoGsb
             . 'WHERE visiteur.login = :unLogin AND visiteur.mdp = :unMdp'
         );
         $requetePrepare->bindParam(':unLogin', $login, PDO::PARAM_STR);
-        $requetePrepare->bindParam(':unMdp', $mdp, PDO::PARAM_STR);
+        $requetePrepare->bindParam(':unMdp', md5($mdp), PDO::PARAM_STR);
         $requetePrepare->execute();
         return $requetePrepare->fetch();
     }
