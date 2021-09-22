@@ -90,7 +90,7 @@ class PdoGsb
      *
      * @return l'id, le nom et le prénom sous la forme d'un tableau associatif
      */
-    public function getInfosVisiteur($login, $mdp)
+    /**public function getInfosVisiteur($login, $mdp)
     {
         $requetePrepare = PdoGsb::$monPdo->prepare(
             'SELECT visiteur.id AS id, visiteur.nom AS nom, '
@@ -99,9 +99,38 @@ class PdoGsb
             . 'WHERE visiteur.login = :unLogin AND visiteur.mdp = :unMdp'
         );
         $requetePrepare->bindParam(':unLogin', $login, PDO::PARAM_STR);
-        $requetePrepare->bindParam(':unMdp', md5($mdp), PDO::PARAM_STR);
+        $requetePrepare->bindParam(':unMdp', md5($mdp) , PDO::PARAM_STR);
         $requetePrepare->execute();
+        
         return $requetePrepare->fetch();
+        
+    }**/
+    public function getInfosVisiteur($login)
+    {
+        $requetePrepare = PdoGsb::$monPdo->prepare(
+            'SELECT visiteur.id AS id, visiteur.nom AS nom, '
+            . 'visiteur.prenom AS prenom '
+            . 'FROM visiteur '
+            . 'WHERE visiteur.login = :unLogin'
+        );
+        $requetePrepare->bindParam(':unLogin', $login, PDO::PARAM_STR);
+        $requetePrepare->execute();
+        
+        return $requetePrepare->fetch();
+      
+    }
+    
+    public function getMdpVisiteur($login)
+    {
+        $requetePrepare = PdoGsb::$monPdo->prepare(
+            'SELECT mdp '
+            . 'FROM visiteur '
+            . 'WHERE visiteur.login = :unLogin'
+        );
+        $requetePrepare->bindParam(':unLogin', $login, PDO::PARAM_STR);
+        $requetePrepare->execute();
+        return $requetePrepare->fetch()['mdp'];
+      
     }
     
     public function getInfosComptable($login, $mdp)
