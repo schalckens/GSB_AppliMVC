@@ -27,11 +27,19 @@ case 'valideConnexion':
     $login = filter_input(INPUT_POST, 'login', FILTER_SANITIZE_STRING);
     $mdp = filter_input(INPUT_POST, 'mdp', FILTER_SANITIZE_STRING);
     $visiteur = $pdo->getInfosVisiteur($login);
-    $comptable = $pdo->getInfosComptable($login,$mdp);
+    $comptable = $pdo->getInfosComptable($login);
     if (!password_verify($mdp,$pdo->getMdpVisiteur($login))) {
-        ajouterErreur('Login ou mot de passe incorrect');
-        include 'vues/v_erreurs.php';
-        include 'vues/v_connexion.php'; 
+        if(!password_verify($mdp,$pdo->getMdpComptable($login))){
+            ajouterErreur('Login ou mot de passe incorrect');
+            include 'vues/v_erreurs.php';
+            include 'vues/v_connexion.php'; 
+        } else {
+            $id = $comptable['id'];
+            $nom = $comptable['nom'];
+            $prenom = $comptable['prenom'];
+            connecterComptable($id, $nom, $prenom);
+            header('Location: index.php'); 
+        } 
     } else {
         $id = $visiteur['id'];
         $nom = $visiteur['nom'];
@@ -39,18 +47,7 @@ case 'valideConnexion':
         connecter($id, $nom, $prenom);
         header('Location: index.php');
     }
-    if(!is_array($comptable)){
-        ajouterErreur('Login ou mot de passe incorrect');
-        include 'vues/v_erreurs.php';
-        include 'vues/v_connexion.php'; 
-    } else {
-        $id = $comptable['id'];
-        $nom = $comptable['nom'];
-        $prenom = $comptable['prenom'];
-        connecterComptable
-        ($id, $nom, $prenom);
-        header('Location: index.php'); 
-    }
+    
     break;
 default:
     include 'vues/v_connexion.php';

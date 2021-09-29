@@ -17,9 +17,9 @@
 </div>
 <div class="row">
     <div class="col-md-12">
-        <div class="panel panel-primary" style="border-color : #006600" >
-            <div class="panel-heading" style="background-color: #009933">
-                <h3 class="panel-title" style="background-color: #009933">
+        <div class="panel panel-primary" style="border-color : #ff9933" >
+            <div class="panel-heading" style="background-color: #ff9933">
+                <h3 class="panel-title" style="background-color: #ff9933">
                     <span class="glyphicon glyphicon-bookmark"></span>
                     Navigation
                 </h3>
@@ -28,13 +28,13 @@
                 <div class="row">
                     <div class="col-xs-12 col-md-12">
                         <a href=""
-                           class="btn btn-success btn-lg" role="button">
+                           class="btn btn-warning btn-lg" role="button">
                             <span class="glyphicon glyphicon-pencil"></span>
-                            <br>Validation de fiche de frais</a>
+                            <br>Valider des fiches de frais</a>
                         <a href=""
-                           class="btn btn-primary btn-lg" role="button">
+                           class="btn btn-info btn-lg" role="button">
                             <span class="glyphicon glyphicon-list-alt"></span>
-                            <br>Suivi paiement de fiche de frais</a>
+                            <br>Suivre les paiements de fiche de frais</a>
                     </div>
                 </div>
             </div>
