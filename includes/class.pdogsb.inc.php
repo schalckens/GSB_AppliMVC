@@ -146,6 +146,19 @@ class PdoGsb
         $requetePrepare->execute();
         return $requetePrepare->fetch();
     }
+    
+    public function getMdpComptable($login)
+    {
+        $requetePrepare = PdoGsb::$monPdo->prepare(
+            'SELECT mdp '
+            . 'FROM comptable '
+            . 'WHERE visiteur.mfp = :unLogin'
+        );
+        $requetePrepare->bindParam(':unLogin', $login, PDO::PARAM_STR);
+        $requetePrepare->execute();
+        return $requetePrepare->fetch()['mdp'];
+      
+    }
 
     /**
      * Retourne sous forme d'un tableau associatif toutes les lignes de frais
