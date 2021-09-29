@@ -22,9 +22,7 @@ $estConnecte = estConnecte();
 $estConnecteComptable = estConnecteComptable();
 require 'vues/v_entete.php';
 $uc = filter_input(INPUT_GET, 'uc', FILTER_SANITIZE_STRING);
-if ($uc && !$estConnecte) {
-    $uc = 'connexion';
-} elseif ($uc && !$estConnecteComptable){
+if ($uc && !$estConnecte || !$estConnecteComptable) {
     $uc = 'connexion';
 } elseif (empty($uc)) {
     $uc = 'accueil';

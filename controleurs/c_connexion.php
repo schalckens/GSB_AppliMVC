@@ -47,7 +47,8 @@ case 'valideConnexion':
         $id = $comptable['id'];
         $nom = $comptable['nom'];
         $prenom = $comptable['prenom'];
-        connecterComptable($id, $nom, $prenom);
+        connecterComptable
+        ($id, $nom, $prenom);
         header('Location: index.php'); 
     }
     break;

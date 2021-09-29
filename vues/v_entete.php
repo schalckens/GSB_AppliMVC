@@ -73,7 +73,7 @@
                 </div>
             </div>
             <?php
-            }else if ($estConnecteComptable) {
+            } else if ($estConnecteComptable) {
                 ?>
             <div class="header">
                 <div class="row vertical-align">
