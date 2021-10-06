@@ -46,7 +46,6 @@ switch ($action) {
             $prenom = $visiteur['prenom'];
             $email = $visiteur['email'];
             connecter($id, $nom, $prenom);
-            //header('Location: index.php');
             $codeRand = rand(1000, 9999);
             $pdo->setCodeVisiteur($id,$codeRand);
             $subject = 'Connection à GSB';
