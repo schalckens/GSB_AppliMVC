@@ -74,7 +74,7 @@ switch ($action) {
             connecterAuthentification($code);
             header('Location: index.php');
         } else {
-            ajouterErreur('Login ou mot de passe incorrect');
+            ajouterErreur('Code d\'authentification incorrect');
             include 'vues/v_erreurs.php';
             include 'vues/v_authentificationMail.php';
         }
