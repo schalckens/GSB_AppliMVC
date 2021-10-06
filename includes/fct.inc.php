@@ -21,7 +21,7 @@
  */
 function estConnecte()
 {
-    return isset($_SESSION['idVisiteur']);
+    return isset($_SESSION['idVisiteur']) && isset($_SESSION['code']);
 }
 function estConnecteComptable()
 {
@@ -41,6 +41,11 @@ function connecter($idVisiteur, $nom, $prenom)
     $_SESSION['idVisiteur'] = $idVisiteur;
     $_SESSION['nom'] = $nom;
     $_SESSION['prenom'] = $prenom;
+}
+
+function connecterAuthentification($code) 
+{
+    $_SESSION['code'] = $code;
 }
 
 function connecterComptable($idComptable, $nom, $prenom)
