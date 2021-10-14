@@ -5,7 +5,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  * "C:\wamp64\bin\php\php7.3.21\php.exe" testSecuCode.php
+ * https://waytolearnx.com/2020/01/tutoriel-curl-en-php.html
  */
+
 
 $codeVisiteur = rand(1000,9999);
 
